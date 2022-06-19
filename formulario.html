@@ -17,25 +17,22 @@
         <div class= "container">
       <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
           <div class="container-fluid">
-              <a href="index.php" class="navbar-brand text-white" >Bienvenidos</a>
+              <a href="index.html" class="navbar-brand text-white" >Bienvenidos</a>
               <button class="navbar-toggler">
                   <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                    <li class="nav-item">
-                     <a class="nav-link active text-white" aria-current="page" href="reservaciones.html">Reservaciones</a>
+                     <a class="nav-link active text-white" aria-current="page" href=></a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link text-white" href="clientes.html">Clientes</a>
+                     <a class="nav-link text-white" href=></a>
                    </li>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link text-white" href="formulario.html">Formulario</a>
+                     <a class="nav-link text-white" href=></a>
                    </li>
-                   <li class="nav-item">
-                    <a class="nav-link text-white" href="lugares.html">Lugares</a>
-                  </li>
 
                    <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle text-white" href="dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +57,7 @@
              </div>
         </nav>
         <center>
-            <h1>Hosteria Lucerito</h1>
+            <h1>Clientes</h1>
           <center>
           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                      <div class="carousel-indicators">
@@ -100,6 +97,117 @@
                      </button>
                    </div>
                </nav>
+               <body style="background-color:#DBB7E2; padding: 30px;">
+
+                <form Nombre="myForm">
+                  <div style="padding:3em; background-color: #EBEBEB; width: 400px;">
+                    <h1>Formulario</h1>
+                  
+                    <h3>Ingrese su Nombre</h3>
+                    Nombre: <input type="text" name= "Nombre" id="nombre" required onkeypress="return valideKey2(event);">
+                    
+                    <p>solo se puede ingresar letras</p>
+                    <h3>Ingresa tu Apellido</h3>
+                    Apellido: <input type="text" name ="Apellido" id="apellido" required>
+                    
+                    <p>solo se puede ingresar letras</p>
+                    <h3>Ingresa tu Cédula</h3>
+                    Cédula: <input type="text" name="Cedula" onkeypress="return valideKey(event);" maxlength="10">
+                    
+                    <p>solo se puede ingresar números</p> 
+                    <h3>Ingresa tu Correo</h3>
+                    Correo: <input type="text" name="correo" id="correo" required>
+                  
+                    <p>solo se puede ingresar los campos permitidos </p>
+                    <h3>Ingresa tu Número de Teléfono</h3>
+                    Teléfono: <input maxlength="10" ninlength="10"type="number" name="Telefono" pattern="[0-9]+">
+                    <p>solo se puede ingresar los campos permitidos </p>
+                    <div style="text-align: center;">
+                      <button class="button button1" style="FONT-SIZE: 15pt; FONT-FAMILY: Verdana" type="submit" onclick="Validar_Nombre(); Validar_Apellido();ValidarCorreo(correo.value)">VALIDAR INFORMACIÓN</button>
+                    </div>
+                  </div>
+                
+                </form>
+                <script type="text/javascript">
+                  function valideKey(evt){
+                      var code = (evt.which) ? evt.which : evt.keyCode;      
+                      if(code==8) { // backspace.
+                        return true;
+                      } else if(code>=48 && code<=57) { // ES NÚMERO.
+                        return true;
+                      } else{ // OTRAS TECLAS.
+                        return false;
+                      }
+                  }
+                  function valideKey2(evt){
+                      var code = (evt.which) ? evt.which : evt.keyCode;      
+                      if(code==8) { // backspace.
+                        return true;
+                      } else if(code>=48 && code<=57) { // ES NÚMERO.
+                        return false;
+                      } else{ // OTRAS TECLAS.
+                        return true;
+                      }
+                  }
+                
+                function ValidarCorreo (valor){
+                  re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+                  if(!re.exec(valor)){
+                    alert('El correo electrónico no es valido');
+                  }
+                  else alert('El correo electrónico esta correcto....');
+                  }
+                  function Validar_Nombre(e){
+                        var input = document.getElementById('nombre');
+                        input.addEventListener('input', function(evt) {
+                        this.setCustomValidity('');
+                        });
+                        input.addEventListener('invalid', function(evt) {        
+                        if (this.validity.valueMissing) {
+                        this.setCustomValidity('El campo nombre no puede estar en blanco');
+                      }
+                      });
+                      }
+                      function Validar_Apellido(e){
+                        var input = document.getElementById('apellido');
+                        input.addEventListener('input', function(evt) {
+                        this.setCustomValidity('');
+                        });
+                        input.addEventListener('invalid', function(evt) {        
+                        if (this.validity.valueMissing) {
+                        this.setCustomValidity('Por favor ingrese el apellido');
+                      }
+                      });
+                
+                      }
+                  </script> 
+                      <style type="text/css">
+                      .button {
+                  background-color: #4CAF50; /* Green */
+                  border: none;
+                  color: white;
+                  padding: 16px 32px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 16px;
+                  margin: 4px 2px;
+                  transition-duration: 0.4s;
+                  cursor: pointer;
+                }
+                
+                .button1 {
+                  background-color: white; 
+                  color: black; 
+                  border: 2px solid #4CAF50;
+                }
+                
+                .button1:hover {
+                  background-color: #4CAF50;
+                  color: white;
+                }
+                
+                        </style>
 
      <footer class="page-footer font-small bg-dark special-color-white pt-4">
         <div class="container">
